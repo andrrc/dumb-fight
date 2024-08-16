@@ -57,6 +57,14 @@ window.addEventListener("keyup", function (event) {
         legsRight.style.animation = "";
         isWalking = false;
     }
+
+    if (event.code === "KeyF") {
+        if (withWeapon) {
+            tirarArma();
+        } else {
+            pegarArma();
+        }
+    }
 });
 
 document.getElementById("armas-form").addEventListener("submit", function (event) {
@@ -75,8 +83,12 @@ function pegarArma() {
     armRight.style.top = "-15px";
     armRight.style.right = "-10px";
     handsRight.appendChild(armaElement);
-    return withWeapon = true;
+    withWeapon = true;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ad9a65a3c960dc8820f73bb65abdc574171b059f
 function tirarArma() {
     const armaElement = handsRight.querySelector(".arma");
     if (armaElement) {
@@ -85,8 +97,9 @@ function tirarArma() {
         armRight.style.right = "";
         handsRight.removeChild(armaElement);
     }
-    return withWeapon = false;
+    withWeapon = false;
 }
+<<<<<<< HEAD
 window.addEventListener('click', function (event) {
     const armaElement = handsRight.querySelector(".arma");
     if (armaElement) {
@@ -96,9 +109,36 @@ window.addEventListener('click', function (event) {
         balaElement.style.top = "10px";
         balaElement.style.animation = "tiro 0.2s linear";
         armaElement.appendChild(balaElement);
+=======
+
+window.addEventListener('click', function(event) {
+    if (withWeapon) {
+        const handsRightRect = handsRight.getBoundingClientRect();
+        const balaElement = document.createElement('div');
+        balaElement.classList.add('bala');
+
+        balaElement.style.position = 'absolute';
+        balaElement.style.left = `${handsRightRect.left + 30}px`;
+        balaElement.style.top = `${handsRightRect.top + 0}px`;
+        document.body.appendChild(balaElement);
+
+        const velocityX = 20;
+        const interval = setInterval(() => {
+            const balaRect = balaElement.getBoundingClientRect();
+
+            if (balaRect.left < window.innerWidth) {
+                balaElement.style.left = `${balaElement.offsetLeft + velocityX}px`;
+            } else {
+                clearInterval(interval); // Para o intervalo se a bala sair da tela
+                balaElement.remove();
+            }
+        }, 1);
+
+>>>>>>> ad9a65a3c960dc8820f73bb65abdc574171b059f
         setTimeout(() => {
-            balaElement.remove();
-        }, 200);
+            if (document.contains(balaElement)) {
+                balaElement.remove();
+            }
+        }, 100); // Tempo máximo de vida da bala
     }
 });
-

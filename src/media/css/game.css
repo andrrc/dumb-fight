@@ -92,19 +92,10 @@ body{
     z-index: 2323232;
 }
 .bala{
-    width: 5px;
-    height: 20px;
+    width: 20px;
+    height: 5px;
     background-color: red;
     position: absolute;
-}
-@keyframes tiro {
-    0%{
-        transform: translateY(0);
-    }
-    100%{
-        transform: translateY(1000px);
-    }
-    
 }
 @keyframes pular {
     0%{
