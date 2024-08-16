@@ -85,10 +85,6 @@ function pegarArma() {
     handsRight.appendChild(armaElement);
     withWeapon = true;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> ad9a65a3c960dc8820f73bb65abdc574171b059f
 function tirarArma() {
     const armaElement = handsRight.querySelector(".arma");
     if (armaElement) {
@@ -99,19 +95,8 @@ function tirarArma() {
     }
     withWeapon = false;
 }
-<<<<<<< HEAD
-window.addEventListener('click', function (event) {
-    const armaElement = handsRight.querySelector(".arma");
-    if (armaElement) {
-        const balaElement = document.createElement("div");
-        balaElement.classList.add("bala");
-        balaElement.style.left = "2.5px";
-        balaElement.style.top = "10px";
-        balaElement.style.animation = "tiro 0.2s linear";
-        armaElement.appendChild(balaElement);
-=======
 
-window.addEventListener('click', function(event) {
+window.addEventListener('click', function (event) {
     if (withWeapon) {
         const handsRightRect = handsRight.getBoundingClientRect();
         const balaElement = document.createElement('div');
@@ -134,7 +119,6 @@ window.addEventListener('click', function(event) {
             }
         }, 1);
 
->>>>>>> ad9a65a3c960dc8820f73bb65abdc574171b059f
         setTimeout(() => {
             if (document.contains(balaElement)) {
                 balaElement.remove();
