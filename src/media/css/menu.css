@@ -1,7 +1,40 @@
-* {
-    background-color: #22223B;
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Raleway:ital@0;1&display=swap');
+
+body {
+    background-blend-mode: saturation;
+    background-image: linear-gradient(rgb(42, 32, 58), rgb(47, 34, 65)), url(https://media.discordapp.net/attachments/1273765375825154090/1273810856534216794/background.png?ex=66bff84e&is=66bea6ce&hm=5fcc30bb6a12ea66d91d715c3e15039f4f4113fea82f42caa202a0c950914976&=&format=webp&quality=lossless);
+    animation: moveBackground 5s infinite alternate;
+}
+
+body:hover {
+    animation-direction: alternate;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: inherit;
+    }
+
+    100% {
+        background-position: right;
+    }
 }
 
 .container-title {
     text-align: center;
+}
+
+.gameplay-menu {
+    color: #bca4d8;
+    display: flex;
+    flex-direction: column;
+    font-family: "Anton", sans-serif;
+    font-size: 55pt;
+    text-align: center;
+    padding-top: 60px;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit
 }

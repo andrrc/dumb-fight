@@ -7,7 +7,7 @@ let walkInterval;
 
 const keysPressed = {};
 
-window.addEventListener("keydown", function(event) {
+window.addEventListener("keydown", function (event) {
     keysPressed[event.code] = true;
 
     if (keysPressed["Space"] && !isJumping) {
@@ -22,7 +22,7 @@ window.addEventListener("keydown", function(event) {
 
     if ((keysPressed["KeyA"] || keysPressed["KeyD"]) && !isWalking) {
         isWalking = true;
-        legsLeft.style.animation = "walk 0.3s infinite linear";
+        legsLeft.style.animation = "walk 0.1s infinite linear";
         legsRight.style.animation = "walk 0.3s infinite linear";
 
         walkInterval = setInterval(() => {
@@ -35,7 +35,7 @@ window.addEventListener("keydown", function(event) {
     }
 });
 
-window.addEventListener("keyup", function(event) {
+window.addEventListener("keyup", function (event) {
     keysPressed[event.code] = false;
 
     if (!keysPressed["KeyA"] && !keysPressed["KeyD"]) {
