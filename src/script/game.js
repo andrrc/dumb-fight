@@ -3,12 +3,18 @@ const armRight = peopleOne.querySelector(".middle .arm-right");
 const handsRight = armRight.querySelector(".hands-right");
 const legsLeft = peopleOne.querySelector(".bottom .legs-left");
 const legsRight = peopleOne.querySelector(".bottom .legs-right");
+const shootSound = document.getElementById('shoot-sound');
+
+shootSound.addEventListener('loadeddata', () => {
+    console.log('Áudio carregado');
+});
 let isJumping = false;
 let isWalking = false;
 let walkInterval;
 let withWeapon = false;
 
 const keysPressed = {};
+
 
 window.addEventListener("keydown", function(event) {
     keysPressed[event.code] = true;
@@ -90,6 +96,8 @@ window.addEventListener('click', function(event) {
         const handsRightRect = handsRight.getBoundingClientRect();
         const balaElement = document.createElement('div');
         balaElement.classList.add('bala');
+        shootSound.currentTime = 0;
+        shootSound.play();
         
         balaElement.style.position = 'absolute';
         balaElement.style.left = `${handsRightRect.left + 30}px`; 
