@@ -79,7 +79,6 @@ function pegarArma() {
     handsRight.appendChild(armaElement);
     withWeapon = true;
 }
-
 function tirarArma() {
     const armaElement = handsRight.querySelector(".arma");
     if (armaElement) {
@@ -91,7 +90,7 @@ function tirarArma() {
     withWeapon = false;
 }
 
-window.addEventListener('click', function(event) {
+window.addEventListener('click', function (event) {
     if (withWeapon) {
         const handsRightRect = handsRight.getBoundingClientRect();
         const balaElement = document.createElement('div');
