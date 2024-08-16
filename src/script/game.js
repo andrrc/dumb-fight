@@ -10,7 +10,7 @@ let withWeapon = false;
 
 const keysPressed = {};
 
-window.addEventListener("keydown", function (event) {
+window.addEventListener("keydown", function(event) {
     keysPressed[event.code] = true;
 
     if (keysPressed["Space"] && !isJumping) {
@@ -25,7 +25,7 @@ window.addEventListener("keydown", function (event) {
 
     if ((keysPressed["KeyA"] || keysPressed["KeyD"]) && !isWalking) {
         isWalking = true;
-        legsLeft.style.animation = "walk 0.1s infinite linear";
+        legsLeft.style.animation = "walk 0.3s infinite linear";
         legsRight.style.animation = "walk 0.3s infinite linear";
 
         walkInterval = setInterval(() => {
@@ -37,18 +37,8 @@ window.addEventListener("keydown", function (event) {
         }, 10);
     }
 });
-window.addEventListener("keyup", function (event) {
-    if (event.code === "KeyF") {
-        if (withWeapon) {
-            tirarArma();
-        } else {
-            pegarArma();
-        }
-    }
 
-
-});
-window.addEventListener("keyup", function (event) {
+window.addEventListener("keyup", function(event) {
     keysPressed[event.code] = false;
 
     if (!keysPressed["KeyA"] && !keysPressed["KeyD"]) {
@@ -57,7 +47,7 @@ window.addEventListener("keyup", function (event) {
         legsRight.style.animation = "";
         isWalking = false;
     }
-
+    
     if (event.code === "KeyF") {
         if (withWeapon) {
             tirarArma();
@@ -67,14 +57,12 @@ window.addEventListener("keyup", function (event) {
     }
 });
 
-document.getElementById("armas-form").addEventListener("submit", function (event) {
+document.getElementById("armas-form").addEventListener("submit", function(event) {
     event.preventDefault();
     const selectElement = document.getElementById("armas-select");
     const selectedValue = selectElement.value;
     pegarArma(selectedValue);
-
 });
-
 
 function pegarArma() {
     const armaElement = document.createElement("div");
@@ -85,10 +73,7 @@ function pegarArma() {
     handsRight.appendChild(armaElement);
     withWeapon = true;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> ad9a65a3c960dc8820f73bb65abdc574171b059f
 function tirarArma() {
     const armaElement = handsRight.querySelector(".arma");
     if (armaElement) {
@@ -99,27 +84,16 @@ function tirarArma() {
     }
     withWeapon = false;
 }
-<<<<<<< HEAD
-window.addEventListener('click', function (event) {
-    const armaElement = handsRight.querySelector(".arma");
-    if (armaElement) {
-        const balaElement = document.createElement("div");
-        balaElement.classList.add("bala");
-        balaElement.style.left = "2.5px";
-        balaElement.style.top = "10px";
-        balaElement.style.animation = "tiro 0.2s linear";
-        armaElement.appendChild(balaElement);
-=======
 
 window.addEventListener('click', function(event) {
     if (withWeapon) {
         const handsRightRect = handsRight.getBoundingClientRect();
         const balaElement = document.createElement('div');
         balaElement.classList.add('bala');
-
+        
         balaElement.style.position = 'absolute';
-        balaElement.style.left = `${handsRightRect.left + 30}px`;
-        balaElement.style.top = `${handsRightRect.top + 0}px`;
+        balaElement.style.left = `${handsRightRect.left + 30}px`; 
+        balaElement.style.top = `${handsRightRect.top + 0}px`; 
         document.body.appendChild(balaElement);
 
         const velocityX = 20;
@@ -134,7 +108,6 @@ window.addEventListener('click', function(event) {
             }
         }, 1);
 
->>>>>>> ad9a65a3c960dc8820f73bb65abdc574171b059f
         setTimeout(() => {
             if (document.contains(balaElement)) {
                 balaElement.remove();
